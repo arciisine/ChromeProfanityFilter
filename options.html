@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Profanity Filter</title>
+    <script type="text/javascript" src="options.js"></script>
+    <link rel="stylesheet" type="text/css" href="options.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="heading">
+        <img src="icon_small.png" />
+        <h1>Simple Profanity Filter</h1>
+        <div class="sub">
+          <a href="#" id="visit-website">Visit the Official Website</a>
+        </div>
+      </div>
+
+      <form name="options">
+        <div class="profanity group">
+          <label id="modify-list-container">
+            <button id="modify-list">Modify Profanity List</button>
+            <small class="warning">Warning: Offensive Language</small>
+          </label>
+
+          <div class="list" id="profanity-list">
+            <label>
+              Filtered Words:
+              <small>Comma separated values with no spaces</small>
+              <textarea id="wordList" cols="40" rows="10"></textarea>
+            </label>
+          </div>
+        </div>
+        <div class="replaceWith group">
+          <label>
+            Replace With:
+            <input type="text" name="replaceWith" value="*****"></td>
+          </label>
+        </div>
+        <div class="controls">
+          <button id="save"">Save</button>
+          <button id="close">Close</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

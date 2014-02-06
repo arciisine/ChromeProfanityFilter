@@ -1,0 +1,71 @@
+body {
+  background-color:#eee;
+  font-family: Arial, Sans-Serif;
+}
+
+.container {
+  background-color: #fff;
+  margin: 0 auto;
+  width: 500px;
+  padding: 2em;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.heading {
+  width: 100%;
+  margin-bottom: .5em; 
+  padding-bottom: .5em;
+}
+
+.heading .sub {
+  font-size: 10pt;
+  text-align: right;
+  width: 100%;
+}
+
+.heading h1, .heading img {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  line-height: 60px;
+}
+
+.heading img {
+  vertical-align: top;
+}
+
+form {
+  font-size: 10pt;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  padding: 1em;
+  margin-top: 1em;
+}
+
+form label small {
+  font-size: 8pt;
+}
+
+form .group {
+  margin-bottom: 1em;
+}
+
+form .controls {
+  width: 100%;
+  text-align: right;
+}
+
+.warning {
+  font-weight: bold;
+}
+
+.profanity .list {
+  display: none;
+}
+
+textarea {
+  width:100%;
+}
+
+
