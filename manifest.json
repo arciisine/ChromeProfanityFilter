@@ -1,8 +1,8 @@
 {
-  "name": "Simple Profanity Filter",
-  "version": "1.2.1",
+  "name": "Chrome Profanity Filter",
+  "version": "1.0.0",
     "manifest_version" : 2,
-  "description": "A simple and configurable profanity filter.",
+  "description": "A configurable profanity filter.",
   "icons": { "128": "icon.png" },
   "background": {
     "scripts" : ["background.js"]

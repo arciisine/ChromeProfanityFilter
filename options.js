@@ -1,5 +1,5 @@
 (function() {
-var website = "https://chrome.google.com/extensions/detail/ackkocjhcalcpgpfjcoinogdejibgbho";
+var website = /* tbd */; 
 
 function cancelEvent(fn) {
   return function(e) {
