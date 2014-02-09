@@ -1,48 +1,44 @@
 (function() {
-var website = /* tbd */; 
 
-function cancelEvent(fn) {
-  return function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    fn(e);
-    return false;
+var options = {
+   wordList : '',
+   replaceWith : '*****'
+};
+
+function byId(id) { return document.getElementById(id); }
+function show(id, on) { byId(id).style.display = on ? 'block' : 'none'; }
+
+function onClick(id, fn) {
+  byId(id).addEventListener('click', 
+    function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      fn(e);
+      return false;
+    }, false);
+}
+
+function sync(out, k) {
+  var f = document.forms.options[k];
+  if (out) {
+    localStorage[k] = f.value || options[k];
+  } else {
+    f.value = localStorage[k] || options[k];
   }
 }
 
+function syncAll(out) {
+  Object.keys(options).forEach(sync.bind(null, out));
+}
+
 window.onload = function() {
-   document.getElementById('save').addEventListener('click', cancelEvent(saveOptions), false);
-   document.getElementById('close').addEventListener('click', cancelEvent(close), false);
-   document.getElementById('visit-website').addEventListener('click', cancelEvent(openWebsite), false);
-   document.getElementById('modify-list').addEventListener('click', cancelEvent(toggleProfanity), false);
-   restoreOptions();
+  onClick('save', syncAll.bind(null, true));
+  onClick('close', window.close);
+  onClick('modify-list', function() {
+    show("profanity-list", true);
+    show("modify-list-container", false);
+  });
+  syncAll();
 }
 
-// Saves options to localStorage.
-function saveOptions() {
-  localStorage.wordList = document.forms.options.wordList.value;
-  localStorage.replaceWith = document.forms.options.replaceWith.value;
-}
-
-function close() {
-   restoreOptions();
-   window.close();
-}
-
-// Restores form state to saved values from localStorage.
-function restoreOptions() {
-  document.forms.options.wordList.value = localStorage.wordList;
-  document.forms.options.replaceWith.value = localStorage.replaceWith === undefined ? '*****' : localStorage.replaceWith;
-}
-
-// Opens the official website in a new tab
-function openWebsite() {
-  chrome.tabs.create({url: website});
-}
-
-// Displays the profanity list and hides the profanity button
-function toggleProfanity() {
-  document.getElementById("profanity-list").style.display = 'block';
-  document.getElementById("modify-list-container").style.display = 'none';
-}
 })();
